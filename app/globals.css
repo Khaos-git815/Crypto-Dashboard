@@ -1,0 +1,287 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Enhanced color scheme with improved gradients and hierarchy */
+  --background: #000000; /* Pure black background */
+  --foreground: #ffffff; /* White text */
+  --card: #0f172a; /* Darker slate cards for better contrast */
+  --card-foreground: #ffffff;
+  --popover: #0f172a;
+  --popover-foreground: #ffffff;
+  --primary: #f97316; /* Vibrant orange primary */
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b; /* Slightly lighter secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #64748b; /* Better muted color */
+  --muted-foreground: #ffffff;
+  --accent: #f97316; /* Vibrant orange accent */
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #334155; /* Lighter borders for better definition */
+  --input: #1e293b; /* Better input background */
+  --ring: #f97316; /* Vibrant orange focus ring */
+  --chart-1: #10b981; /* Green for gains */
+  --chart-2: #06b6d4; /* Cyan */
+  --chart-3: #f97316; /* Vibrant orange */
+  --chart-4: #8b5cf6; /* Purple */
+  --chart-5: #ef4444; /* Red for losses */
+  --radius: 0.75rem; /* Updated to match rounded-xl */
+  --sidebar: #0f172a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f97316;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: #f97316;
+  
+  /* Enhanced color palette */
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+  --orange-950: #431407;
+  
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-800: #92400e;
+  --amber-900: #78350f;
+  --amber-950: #451a03;
+  
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0f172a;
+  --card-foreground: #ffffff;
+  --popover: #0f172a;
+  --popover-foreground: #ffffff;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #ffffff;
+  --muted: #64748b;
+  --muted-foreground: #ffffff;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #f97316;
+  --chart-1: #10b981;
+  --chart-2: #06b6d4;
+  --chart-3: #f97316;
+  --chart-4: #8b5cf6;
+  --chart-5: #ef4444;
+  --sidebar: #0f172a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f97316;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: #f97316;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Enhanced custom button styles with sophisticated effects */
+  .crypto-button {
+    @apply rounded-xl bg-gradient-to-r from-slate-900 to-slate-800 border border-orange-500/30 text-white px-4 py-2 transition-all duration-300 shadow-lg shadow-orange-500/10;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  .crypto-button:hover {
+    @apply shadow-xl shadow-orange-500/25 border-orange-400;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    transform: translateY(-1px);
+  }
+
+  .crypto-button.active {
+    @apply shadow-xl shadow-orange-500/30;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  }
+
+  /* Enhanced heading styles with gradient text */
+  .crypto-heading {
+    @apply font-bold;
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced pixelated font effect */
+  .pixelated-text {
+    font-family: "Courier New", monospace;
+    text-shadow: 
+      0 0 5px #f97316, 
+      0 0 10px #f97316, 
+      0 0 15px #f97316,
+      0 0 20px #f97316;
+    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.3));
+  }
+
+  /* New gradient text utility */
+  .gradient-text {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced card styles */
+  .crypto-card {
+    @apply rounded-xl border border-slate-700/50 bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .crypto-card:hover {
+    @apply border-orange-500/30;
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(249, 115, 22, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Glow effect utility */
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+
+  .glow-orange:hover {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  }
+
+  /* 3D Perspective utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .rotate-y-2 {
+    transform: rotateY(2deg);
+  }
+
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+
+  /* Enhanced 3D card effects */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-8px) rotateX(5deg);
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Glow pulse animation */
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-pulse {
+    from {
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+    }
+  }
+}
