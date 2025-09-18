@@ -123,3 +123,133 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .mesh-bg {
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(251, 146, 60, 0.10), transparent 60%),
+      radial-gradient(800px 500px at 90% 20%, rgba(245, 158, 11, 0.10), transparent 60%),
+      radial-gradient(900px 600px at 30% 90%, rgba(251, 191, 36, 0.10), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.85));
+    animation: meshShift 28s ease-in-out infinite alternate;
+  }
+
+  @keyframes meshShift {
+    0% { background-position: 0% 0%, 100% 0%, 30% 100%, 0 0; }
+    50% { background-position: 10% 5%, 95% 15%, 35% 95%, 0 0; }
+    100% { background-position: 5% 10%, 90% 10%, 40% 90%, 0 0; }
+  }
+
+  .glass {
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .crypto-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(251, 146, 60, 0.06);
+    border-radius: 16px;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .crypto-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(251, 146, 60, 0.35);
+    box-shadow: 0 20px 40px rgba(251, 146, 60, 0.12);
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(90deg, #fb923c, #f59e0b, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 0 0 rgba(251,146,60,0.0), 0 8px 24px rgba(251,146,60,0.18);
+  }
+
+  .animated-border {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .animated-border::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from 0deg, rgba(251,146,60,0.0), rgba(251,146,60,0.5), rgba(251,146,60,0.0));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: spin 6s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(1turn); }
+  }
+
+  .noise-bg {
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  .shimmer {
+    background: linear-gradient(110deg, rgba(255,255,255,0.06) 8%, rgba(255,255,255,0.18) 18%, rgba(255,255,255,0.06) 33%);
+    background-size: 200% 100%;
+    animation: shimmerMove 1.6s linear infinite;
+  }
+  @keyframes shimmerMove {
+    to { background-position: -200% 0; }
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 0 rgba(251,146,60,0.0), 0 0 40px rgba(251,146,60,0.12);
+    animation: glowPulse 2.8s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(251,146,60,0.0), 0 0 40px rgba(251,146,60,0.12); }
+    50% { box-shadow: 0 0 0 0 rgba(251,146,60,0.0), 0 0 70px rgba(251,146,60,0.22); }
+  }
+
+  .orb {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 9999px;
+    filter: blur(40px);
+    background: radial-gradient(circle at 30% 30%, rgba(251,146,60,0.35), rgba(253,186,116,0.0));
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* Interaction utilities (no images) */
+  .hover-glow {
+    transition: box-shadow 220ms ease, transform 180ms ease, background-color 180ms ease;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 10px 30px rgba(251,146,60,0.18), 0 0 0 1px rgba(251,146,60,0.24) inset;
+    transform: translateY(-1px);
+  }
+  .focus-ring:focus-visible {
+    outline: 2px solid rgba(251,146,60,0.6);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(251,146,60,0.25);
+  }
+
+  /* Logo hover pulse for widget grid */
+  .logo-glow {
+    transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease;
+  }
+  .logo-glow-pulse {
+    animation: logoPulse 2600ms ease-in-out infinite;
+    filter: drop-shadow(0 0 22px rgba(251,146,60,0.18)) drop-shadow(0 0 44px rgba(251,146,60,0.12));
+  }
+  @keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+}
